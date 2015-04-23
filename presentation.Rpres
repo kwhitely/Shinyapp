@@ -1,0 +1,44 @@
+Does Wind Speed Affect Temperature?
+========================================================
+author: Kyle
+date: `r date()`
+
+Have You Ever Wondered:
+========================================================
+
+- How do temperature and wind speed relate?
+
+- Does this relationship change depending on the month?
+
+
+
+If you answered **yes**, then this app is for you.
+
+How it Works
+========================================================
+
+- The data comes from the airquality dataset
+- The user interacts with ui.R to pick the month of interest
+
+***
+
+- Then, server.R works behind the scenes to run the calculations and create the graph
+- Lastly, a graph is displayed for the selected month, along with the regression line
+
+Temperature vs Wind for September
+========================================================
+
+```{r, echo=FALSE}
+library(datasets)
+selectedMonth <- subset(airquality, Month==9)
+plot(selectedMonth$Wind, selectedMonth$Temp,
+                xlab="Wind Speed (mph)", ylab="Temperature (F)")
+                abline(lm(selectedMonth$Temp~selectedMonth$Wind))
+```
+
+The App
+=======================================================
+
+As the previous slide demonstrated, there is a clear relationship between 
+temperature and wind speed.  To view the results for additional months, 
+please click [here.](http://ky-dataproducts.shinyapps.io/Coursera_Data_Products/)
